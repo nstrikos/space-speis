@@ -2,12 +2,12 @@
 #define UPPERCASE_H
 
 #include <QObject>
-#include <lunar.h>
-#include <julian_day.h>
-#include <rise_set.h>
-#include <transform.h>
-#include <utility.h>
-#include <solar.h>
+#include <libnova/lunar.h>
+#include <libnova/julian_day.h>
+#include <libnova/rise_set.h>
+#include <libnova/transform.h>
+#include <libnova/utility.h>
+#include <libnova/solar.h>
 
 #include <QDebug>
 
@@ -27,20 +27,21 @@ public:
 };
 
 
-class Uppercase : public QObject
+class LunarComputer : public QObject
 {
     Q_OBJECT
 public:
-    explicit Uppercase(QObject *parent = 0);
+    explicit LunarComputer(QObject *parent = 0);
 
 signals:
 
 public slots:
-    QString uppercase(const QString& in);
-    double testC(double x);
-    double getX();
-    double getY();
-    double getZ();
+    void performCalculations(double unixMilliSecs);
+    double getLunarX();
+    double getLunarY();
+    double getLunarZ();
+    double getLunarLongitude();
+    double getLunarDistance();
 
 public:
     double JD;
@@ -50,17 +51,15 @@ public:
     struct ln_lnlat_posn lunarEcl;
     struct ln_lnlat_posn observer;
     struct ln_rst_time rst;
-    struct ln_zonedate rise, transit, set;
     vector3D moonPosition;
     eclCoords solarCoords;
     eclCoords moonCoords;
 
-    void setObserver(double latitude, double longitude);
-    void setJD(double JD);
-    void computeMoonPosition();
+    void setObserver( double latitude, double longitude );
+    void computeLunarPosition();
+    void computeLunarCoordinates();
     eclCoords getSolarCoords();
-    eclCoords getMoonCoords();
-    float getJulianFromUnix( int unixSecs );
+    void setJulianFromUnix( double unixMilliSecs );
 };
 
 #endif // UPPERCASE_H

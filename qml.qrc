@@ -1,7 +1,15 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>glcode.js</file>
         <file>three.js</file>
+        <file>content/AndroidDelegate.qml</file>
+        <file>content/ControlEventSource.qml</file>
+        <file>main.cpp</file>
+        <file>fonts/LiberationSans-Regular.ttf</file>
+        <file>images/navigation_next_item.png</file>
+        <file>images/navigation_previous_item.png</file>
+        <file>images/toolbar.png</file>
+        <file>content/lunar.qml</file>
+        <file>javascript/lunar.js</file>
     </qresource>
 </RCC>

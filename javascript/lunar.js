@@ -1,5 +1,5 @@
 
-Qt.include("three.js")
+Qt.include("../three.js")
 
 var camera, scene, renderer;
 var distance;
@@ -634,21 +634,12 @@ function setSphere2Z(value)
     clearOrbits();
 }
 
-function setPosX(value)
+function setLunarPosition(x, y, z)
 {
-    posX = value;
+    posX = x;
+    posY = y;
+    posZ = z;
 }
-
-function setPosY(value)
-{
-    posY = value;
-}
-
-function setPosZ(value)
-{
-    posZ = value;
-}
-
 
 function clearOrbits()
 {

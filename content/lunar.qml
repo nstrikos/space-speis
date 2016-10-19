@@ -4,7 +4,7 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.1
 
-import "../surface.js" as GLCode
+import "../javascript/lunar.js" as GLCode
 
 
 Rectangle {
@@ -40,14 +40,12 @@ Rectangle {
         curr_time += 360000 * diff;
         time = new_time;
         var d = new Date(curr_time);
-        //console.log(d);
-        _testC.testC(curr_time);
-        posX = _getX.getX();
-        posY = _getY.getZ();
-        posZ = _getZ.getY();
-        GLCode.setPosX(posX);
-        GLCode.setPosY(posY);
-        GLCode.setPosZ(posZ);
+        console.log(d);
+        _performCalculations.performCalculations(curr_time);
+        posX = _getLunarX.getLunarX();
+        posY = _getLunarY.getLunarY();
+        posZ = _getLunarZ.getLunarZ();
+        GLCode.setLunarPosition(posX, posY, posZ);
     }
 
     Timer {
